@@ -14,9 +14,11 @@ var config = {
 
 export const createUserProfileDocument = async (userAuth) => {
     if (!userAuth) return;
-    const userRef = firestore.collection("users").doc('FBqqlwkGYYvH5GbRLiGJ');
+    const userRef = firestore.collection("users");
     const snapShot = await userRef.get();
-    console.log('firestore:',firestore)
+    console.log('master duke help me:',firestore.collection)
+    console.log('master duke help me:',firestore)
+    console.log('firestore:',firestore)   
     console.log('firestore return value:',userRef,typeof(userRef))
     console.log('snapshot of user:', snapShot)
 }
