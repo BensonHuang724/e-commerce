@@ -10,8 +10,18 @@ var config = {
     appId: "1:178353045399:web:e46acfa369884be2b94ed2",
     measurementId: "G-CCD66CFM1S",
   }; 
-firebase.initializeApp(config);
 
+
+export const createUserProfileDocument = async (userAuth) => {
+    if (!userAuth) return;
+    const userRef = firestore.collection("users").doc('FBqqlwkGYYvH5GbRLiGJ');
+    const snapShot = await userRef.get();
+    console.log('firestore:',firestore)
+    console.log('firestore return value:',userRef,typeof(userRef))
+    console.log('snapshot of user:', snapShot)
+}
+
+firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
